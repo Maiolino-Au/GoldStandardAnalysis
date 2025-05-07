@@ -82,9 +82,10 @@ RUN R -e "install.packages( \
 RUN R -e "BiocManager::install(\"tidyverse\")"
 
 # Seurat v.4.1.1
+# SeuratObjec installed 2 times due to unwanted automatic update
 RUN R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.0\")" \
     R -e "remotes::install_version(\"Seurat\", version = \"4.1.1\")" \
-    R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.0\")" \
+    R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.0\")" \ 
     R -e "devtools::install_github('immunogenomics/presto')"
 
 #
