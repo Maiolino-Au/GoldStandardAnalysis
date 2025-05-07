@@ -28,7 +28,7 @@
 # Fig. 7b, 6 times; Extended Data Fig. 9a, 5 times; Extended Data Fig. 9b, 13 times; Extended 
 # Data Fig. 10d, 3 times.
 
-# Versions
+# Versions (for single cell only R, CellRanger, and Seurat are needed)
 # R v4.4.1
 # JMP Pro v16.0.0
 # CellRanger v3.0.1
