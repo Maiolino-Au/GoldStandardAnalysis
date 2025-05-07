@@ -89,5 +89,5 @@ RUN R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.0\")" \
     R -e "devtools::install_github('immunogenomics/presto')"
 
 #
-
+ENV SHELL=/bin/bash
 CMD jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.allow_origin='*' --ServerApp.token='' #last one disables the token
