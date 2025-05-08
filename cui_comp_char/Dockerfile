@@ -22,8 +22,14 @@
 
 
 # R version was not specified
-# Using 4.2.0 due to its date of release being april 2022, the closest to the release of Seurat v4.1.1 (2 may 2022)
-FROM r-base:4.2.0
+# Using 4.3.2 for arbitrary reasons 
+# The r-base:4.2.0 image is built on Debian Stretch or Buster, which predates full /usr merge adoption. 
+# This is what’s causing the base-files conflict. You can fix this cleanly by switching to a newer R base 
+# image that uses Debian Bullseye or later (where /usr is already merged).
+
+#date of release being april 2022, the closest to the release of Seurat v4.1.1 (2 may 2022)
+FROM r-base:4.3.2
+
 
 RUN apt update && apt install -y --no-install-recommends \
     software-properties-common \
@@ -83,10 +89,10 @@ RUN R -e "BiocManager::install(\"tidyverse\")"
 
 # Seurat v.4.1.1
 # SeuratObjec installed 2 times due to unwanted automatic update
-RUN R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.0\")" \
-    R -e "remotes::install_version(\"Seurat\", version = \"4.1.1\")" \
-    R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.0\")" \ 
-    R -e "devtools::install_github('immunogenomics/presto')"
+RUN R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.0\")" 
+RUN R -e "remotes::install_version(\"Seurat\", version = \"4.1.1\")" 
+RUN R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.0\")" 
+
 
 #
 ENV SHELL=/bin/bash
