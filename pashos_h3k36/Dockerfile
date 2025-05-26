@@ -107,9 +107,10 @@ RUN R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.4\")" \
     R -e "devtools::install_github('immunogenomics/presto')"
 
 # Download the R script from GitHub
-#RUN mkdir -p /Scripts && \
- #   cd /Scripts && \
-  #  curl -O https://github.com/Maiolino-Au/GoldStandardAnalysis/edit/main/pashos_h3k36/Scripts/First.R
+RUN mkdir -p /Scripts && \
+    cd /Scripts && \
+    curl -O https://github.com/Maiolino-Au/GoldStandardAnalysis/edit/main/pashos_h3k36/Scripts/0_Download.R && \
+    sudo chmod -R ..
 
 #
 ENV SHELL=/bin/bash
