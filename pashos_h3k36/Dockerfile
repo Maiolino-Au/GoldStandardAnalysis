@@ -95,7 +95,7 @@ RUN R -e "install.packages( \
     \"cowplot\", \
     \"IRkernel\", \
     \"remotes\" \
-    ))"
+    ))" 
 
 RUN R -e "BiocManager::install(\"tidyverse\")"
 
@@ -106,6 +106,11 @@ RUN R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.4\")" \
     R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.4\")" \
     R -e "devtools::install_github('immunogenomics/presto')"
 
-#
+# Download the R script from GitHub
+#RUN mkdir -p /Scripts && \
+ #   cd /Scripts && \
+  #  curl -O https://github.com/Maiolino-Au/GoldStandardAnalysis/edit/main/pashos_h3k36/Scripts/First.R
 
+#
+ENV SHELL=/bin/bash
 CMD jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.allow_origin='*' --ServerApp.token='' #last one disables the token
