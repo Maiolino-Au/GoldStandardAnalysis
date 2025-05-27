@@ -109,8 +109,7 @@ RUN R -e "remotes::install_version(\"SeuratObject\", version = \"4.1.4\")" \
 # Download the R script from GitHub
 RUN mkdir -p /Scripts && \
     cd /Scripts && \
-    curl -O https://github.com/Maiolino-Au/GoldStandardAnalysis/edit/main/pashos_h3k36/Scripts/0_Download.R && \
-    sudo chmod -R ..
+    curl -O https://raw.githubusercontent.com/Maiolino-Au/GoldStandardAnalysis/main/pashos_h3k36/Scripts/0_Download.R
 
 #
 ENV SHELL=/bin/bash
